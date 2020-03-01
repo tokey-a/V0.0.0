@@ -1,0 +1,5 @@
+{
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "workbench.preferredLightColorTheme": "Visual Studio Light",
+    "workbench.preferredDarkColorTheme": "Default Light+"
+}
