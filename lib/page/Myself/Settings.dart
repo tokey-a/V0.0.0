@@ -25,7 +25,7 @@ class _SettingsState extends State<Settings> {
         ),
         elevation: 1,
         title: Text(
-          "设置",
+          "设置e",
           style: TextStyle(
             color: Color.fromRGBO(92, 92, 92, 1),
             fontSize: ScreenUtil().setSp(32),
