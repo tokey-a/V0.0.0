@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tokpay/page/Myself/RealName1.dart';
 
 class UploadIdCard extends StatefulWidget {
   @override
@@ -81,7 +82,7 @@ padding: EdgeInsets.only(top: ScreenUtil().setHeight(35),bottom: ScreenUtil().se
                   ),
                   color: Color.fromRGBO(31, 120, 228, 1),
                   onPressed: () {
-                    print("下一步");
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>RealName1()));
                   })),
                   Container(
                     padding: EdgeInsets.only(top: ScreenUtil().setHeight(35),),

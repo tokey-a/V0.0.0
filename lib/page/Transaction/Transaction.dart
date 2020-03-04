@@ -9,12 +9,12 @@ class Transaction extends StatefulWidget {
 
 class _TransactionState extends State<Transaction> {
   @override
-  static bool stateUser = false; //判断用户是否实名注册
+  static bool stateUser = true; //判断用户是否实名注册
   String salesNum = "2099.926"; //出售量
   String buyNum = "72.9564"; //购买量
   String averageM = "08"; //平均放行速度--分
   String averageS = "32"; //平均放行速度--秒
-  bool _switchItem = false; //开关
+  bool _switchItem = false; //是否开启接单开关
 
   Widget build(BuildContext context) {
     return Column(
@@ -168,7 +168,6 @@ class _TransactionState extends State<Transaction> {
                                                 Radius.circular(10.0)
                                                 )
                                                 ),
-                                                // contentPadding: EdgeInsets.all(0),
                                                 titlePadding: EdgeInsets.all(0),
                                                 title: GestureDetector(
                                               child: Container(
@@ -378,8 +377,6 @@ class _TransactionState extends State<Transaction> {
                                         titlePadding: EdgeInsets.all(0),
                                       ));
 
-                            //  _switchItem = f;
-                              print(1111222221);
                             } else {
                               //switch未选中，用户打开事件
                               _switchItem = e;
@@ -550,7 +547,7 @@ class _StateUserState extends State<StateUser> {
                                     topRight: Radius.circular(5))),
                             child: Row(
                               children: <Widget>[
-                                assetsType[index] == 1
+                                assetsType[index] == "1"
                                     ? Text(
                                         "买入单",
                                         style: TextStyle(
@@ -581,7 +578,7 @@ class _StateUserState extends State<StateUser> {
                                 Expanded(
                                     child: Container(
                                   alignment: Alignment.centerRight,
-                                  child: overType[index] == 1
+                                  child: overType[index] == "1"
                                       ? Text(
                                           "待付款",
                                           style: TextStyle(
@@ -644,7 +641,7 @@ class _StateUserState extends State<StateUser> {
                                   children: <Widget>[
                                     Container(
                                       child: Text(
-                                        price[index],
+                                        "交易额",
                                         style: TextStyle(
                                           color:
                                               Color.fromRGBO(141, 150, 160, 1),
@@ -718,7 +715,6 @@ class _StateUserState extends State<StateUser> {
                                       ],
                                     ))
                               ]))
-                        
                         ],
                       ),
                     )))

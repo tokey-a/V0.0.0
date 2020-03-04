@@ -70,6 +70,10 @@ class _RegisterViewState extends State<RegisterView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入邮箱号',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -92,6 +96,10 @@ class _RegisterViewState extends State<RegisterView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请设置登录密码',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -115,6 +123,10 @@ class _RegisterViewState extends State<RegisterView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入图形验证码',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -137,6 +149,38 @@ class _RegisterViewState extends State<RegisterView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入手机或邮箱验证码',
+                   suffixIcon:
+              GestureDetector(
+                onTap: (){
+                  print("object");
+                   FocusScope.of(context).requestFocus(FocusNode());
+                },
+
+                child:
+              Container(
+                margin: EdgeInsets.only(top: ScreenUtil().setHeight(25),bottom: ScreenUtil().setHeight(15)),
+                padding: EdgeInsets.only(left: ScreenUtil().setWidth(23)),
+                decoration: BoxDecoration(
+                  border: Border(left: BorderSide(width: 1,color: Color.fromRGBO(196, 205, 218, 1)))
+                ),
+                child:
+                GestureDetector(
+                  onTap: (){
+                    print("发送验证码");
+                  },
+                  child:
+                Text("发送验证码",style: TextStyle(
+                  color: Color.fromRGBO(31, 120, 228, 1),
+                  fontSize: ScreenUtil().setSp(26)
+                ),),)
+              ),
+               ), 
+                 
+
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -197,7 +241,11 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
           ),
          onTap: (){
             print("登录");
-            Navigator.push(context, MaterialPageRoute(builder:(context)=>SignIn()));
+            // Navigator.pushNamedAndRemoveUntil(context, "signIn", (route) => route==null);
+            Navigator.of(context).pop();
+           
+            
+            
           },
         )
       ],

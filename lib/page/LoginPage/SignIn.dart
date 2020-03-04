@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tokpay/page/HomePage.dart';
 import 'package:tokpay/page/LoginPage/ForgetPassWord.dart';
 import 'package:tokpay/page/LoginPage/Register.dart';
 import 'package:tokpay/page/LoginPage/RegisterSuccess.dart';
+import 'package:tokpay/page/Transaction/Transaction.dart';
 
 
 class SignIn extends StatefulWidget {
@@ -21,7 +23,13 @@ class _SignInState extends State<SignIn> {
         ),
         elevation: 0,
       ),
-      body:ListView(
+      body:
+      GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child:
+      ListView(
         children: <Widget>[
           Container(
             color: Colors.white,
@@ -29,6 +37,7 @@ class _SignInState extends State<SignIn> {
           
         ],
         
+      ),
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.only(left:ScreenUtil().setWidth(240),bottom: ScreenUtil().setHeight(44)),
@@ -58,7 +67,7 @@ class _SignInViewState extends State<SignInView> {
           child:Text("登录账号",style: TextStyle(
           fontSize: ScreenUtil().setSp(36),
           color: Color.fromRGBO(42, 127, 231, 1),
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w600,
         ),), 
         ),
         Container(
@@ -76,6 +85,10 @@ class _SignInViewState extends State<SignInView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入登录账号',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -102,6 +115,10 @@ class _SignInViewState extends State<SignInView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入登录密码',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -115,22 +132,24 @@ class _SignInViewState extends State<SignInView> {
                 ),
           ),
         ),
-        InkWell(
-          child:Container(
-            padding: EdgeInsets.fromLTRB(
+        
+          Container(
+            margin: EdgeInsets.fromLTRB(
               ScreenUtil().setWidth(556),
            ScreenUtil().setHeight(22), 
            ScreenUtil().setWidth(0), 
             ScreenUtil().setHeight(54)),
+            child:InkWell(
           child: Text("忘记密码？",style: TextStyle(
             color: Color.fromRGBO(31, 120, 228, 1),
             fontSize: ScreenUtil().setSp(28,allowFontScalingSelf: false),
             fontWeight: FontWeight.w600
-          ),),),
+          ),),
           onTap: (){
             print("找回密码");
             Navigator.push(context, MaterialPageRoute(builder:(context)=>ForgetPassWord()));
           },
+            ),
         ),
         Container(
           margin: EdgeInsets.only(left:ScreenUtil().setWidth(55),right:ScreenUtil().setWidth(55) ),
@@ -142,8 +161,9 @@ class _SignInViewState extends State<SignInView> {
               fontSize: ScreenUtil().setSp(28),
             ),),
             onPressed: (){
-              print("登录");
-               Navigator.push(context, MaterialPageRoute(builder:(context)=>RegisterSuccess()));
+               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context)=> HomePage()),
+               (route)=>route==null//null时不可返回
+               );
             }),
         )
       ],
@@ -174,7 +194,8 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
           ),
          onTap: (){
             print("注册");
-            Navigator.push(context, MaterialPageRoute(builder:(context)=>Register()));
+            Navigator.push(context, MaterialPageRoute(builder:(context)=>Register())
+            );
           },
         )
       ],

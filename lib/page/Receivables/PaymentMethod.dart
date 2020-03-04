@@ -239,7 +239,9 @@ ScrollController _controller;
             margin: EdgeInsets.only(
                 top: ScreenUtil().setHeight(55),
                 left: ScreenUtil().setWidth(55),
-                right: ScreenUtil().setWidth(55)),
+                right: ScreenUtil().setWidth(55),
+                bottom: ScreenUtil().setHeight(55)
+                ),
             padding: EdgeInsets.only(
                 top: ScreenUtil().setHeight(2),
                 bottom: ScreenUtil().setHeight(2)),

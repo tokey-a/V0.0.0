@@ -75,6 +75,12 @@ flutter:
      - Images/Assets/Icons/type/s.png
      - Images/Myself/RealName/RealNameTrue/wite.png
      - Images/Myself/RealName/RealNameFalse/false.png
+     - Images/Myself/BGcolor/BG.png
+     - Images/Myself/Icons/Assets/Ass.png
+     - Images/Myself/Icons/card/card.png
+     - Images/Myself/Icons/myAssets/MyAss.png
+     - Images/Myself/Icons/safe/safe.png
+     - Images/Myself/settings/settings.png
 
      
      

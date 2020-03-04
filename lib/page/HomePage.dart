@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tokpay/page/Assets/Assets.dart';
 import 'package:tokpay/page/Myself/myself.dart';
 import 'package:tokpay/page/Order/Order.dart';
-import 'package:tokpay/page/Transaction.dart';
+import 'package:tokpay/page/Transaction/Transaction.dart';
 
 class HomePage extends StatefulWidget {
   

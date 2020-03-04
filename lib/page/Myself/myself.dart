@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tokpay/mainOn.dart';
+import 'package:tokpay/page/LoginPage/SignIn.dart';
+import 'package:tokpay/page/Myself/RealName/RealName.dart';
+import 'package:tokpay/page/Myself/RealName/UploadIdCard.dart';
+import 'package:tokpay/page/Myself/SafetyCenter/SafetyCenter.dart';
 import 'package:tokpay/page/Myself/Settings.dart';
+import 'package:tokpay/page/Receivables/PaymentMethod.dart';
 
 class Myself extends StatefulWidget {
   @override
@@ -20,7 +25,7 @@ body: Column(
       margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(10)),
       width: double.infinity,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("Images/Assets/background/BG.png"),fit: BoxFit.cover)
+        image: DecorationImage(image: AssetImage("Images/Myself/BGcolor/BG.png"),fit: BoxFit.cover)
       ),
 
       child: Column(
@@ -30,7 +35,7 @@ body: Column(
              GestureDetector(child: Container(
                 alignment: Alignment.centerRight,
                 padding: EdgeInsets.only(right: ScreenUtil().setWidth(41),top: ScreenUtil().setHeight(80)),
-                child: Image.asset("Images/Login/RegisterSuccess/6icon/6icon.png",width:ScreenUtil().setWidth(32),height: ScreenUtil().setHeight(31),),
+                child: Image.asset("Images/Myself/settings/settings.png",width:ScreenUtil().setWidth(32),height: ScreenUtil().setHeight(31),),
               ),
               onTap: (){
                 print("object");
@@ -76,10 +81,10 @@ body: Column(
        padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(55), ScreenUtil().setHeight(40), ScreenUtil().setWidth(55), ScreenUtil().setHeight(40)),
             child: Row(
               children: <Widget>[
-                Image.asset("Images/Login/RegisterSuccess/6icon/6icon.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
+                Image.asset("Images/Myself/Icons/myAssets/MyAss.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
                 Container(
                   padding: EdgeInsets.only(left: ScreenUtil().setWidth(20)),
-                  child: Text("我的"),
+                  child: Text("登录"),
                 ),
                 Expanded(
                   child: Container(
@@ -91,6 +96,34 @@ body: Column(
             ),
           ),
           onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
+          },
+          ),
+  
+    GestureDetector(
+     child:Container(
+       decoration: BoxDecoration(
+         border: Border(bottom: BorderSide(width: 1,color: Colors.grey),)
+       ),
+       padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(55), ScreenUtil().setHeight(40), ScreenUtil().setWidth(55), ScreenUtil().setHeight(40)),
+            child: Row(
+              children: <Widget>[
+                Image.asset("Images/Myself/Icons/Assets/Ass.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
+                Container(
+                  padding: EdgeInsets.only(left: ScreenUtil().setWidth(20)),
+                  child: Text("实名认证"),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: Image.asset("Images/Currency/YouJianTou/Rectangle.png",width: ScreenUtil().setWidth(40),height: ScreenUtil().setHeight(40),),
+                  )
+                  )
+              ],
+            ),
+          ),
+          onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadIdCard()));
             print("我的");
           },
           ),
@@ -103,10 +136,10 @@ body: Column(
        padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(55), ScreenUtil().setHeight(40), ScreenUtil().setWidth(55), ScreenUtil().setHeight(40)),
             child: Row(
               children: <Widget>[
-                Image.asset("Images/Login/RegisterSuccess/6icon/6icon.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
+                Image.asset("Images/Myself/Icons/card/card.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
                 Container(
                   padding: EdgeInsets.only(left: ScreenUtil().setWidth(20)),
-                  child: Text("全部"),
+                  child: Text("收款方式"),
                 ),
                 Expanded(
                   child: Container(
@@ -118,8 +151,7 @@ body: Column(
             ),
           ),
           onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>MainOn()));
-            print("我的");
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentMethod()));
           },
           ),
   
@@ -131,10 +163,10 @@ body: Column(
        padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(55), ScreenUtil().setHeight(40), ScreenUtil().setWidth(55), ScreenUtil().setHeight(40)),
             child: Row(
               children: <Widget>[
-                Image.asset("Images/Login/RegisterSuccess/6icon/6icon.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
+                Image.asset("Images/Myself/Icons/safe/safe.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
                 Container(
                   padding: EdgeInsets.only(left: ScreenUtil().setWidth(20)),
-                  child: Text("我的"),
+                  child: Text("安全中心"),
                 ),
                 Expanded(
                   child: Container(
@@ -146,34 +178,7 @@ body: Column(
             ),
           ),
           onTap: (){
-            print("我的");
-          },
-          ),
-  
-    GestureDetector(
-     child:Container(
-       decoration: BoxDecoration(
-         border: Border(bottom: BorderSide(width: 1,color: Colors.grey),)
-       ),
-       padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(55), ScreenUtil().setHeight(40), ScreenUtil().setWidth(55), ScreenUtil().setHeight(40)),
-            child: Row(
-              children: <Widget>[
-                Image.asset("Images/Login/RegisterSuccess/6icon/6icon.png",width: ScreenUtil().setWidth(50),height: ScreenUtil().setHeight(50),),
-                Container(
-                  padding: EdgeInsets.only(left: ScreenUtil().setWidth(20)),
-                  child: Text("我的"),
-                ),
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    child: Image.asset("Images/Currency/YouJianTou/Rectangle.png",width: ScreenUtil().setWidth(40),height: ScreenUtil().setHeight(40),),
-                  )
-                  )
-              ],
-            ),
-          ),
-          onTap: (){
-            print("我的");
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>SafetyCenter()));
           },
           )
   

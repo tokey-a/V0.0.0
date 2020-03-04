@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tokpay/page/HomePage.dart';
+import 'package:tokpay/page/LoginPage/SignIn.dart';
+import 'package:tokpay/page/Myself/myself.dart';
 
 
 
@@ -23,6 +24,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: <String, WidgetBuilder> {
+          'myself': (BuildContext context) => Myself(),
+          'signIn':(BuildContext context) => SignIn(),
+        },
       title: "asdasd",
       theme: ThemeData(
         primaryColor: Color.fromRGBO(255, 255, 255, 1),

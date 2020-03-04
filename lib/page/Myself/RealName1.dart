@@ -84,7 +84,14 @@ class _RealName1State extends State<RealName1> {
                              ));
       },
       ),
-      body: RealNameView(),
+      body: 
+      ListView(
+        padding: EdgeInsets.all(0),
+        // physics: NeverScrollableScrollPhysics(),
+        children: <Widget>[
+        RealNameView(),
+      ],)
+      
     );
   }
 }

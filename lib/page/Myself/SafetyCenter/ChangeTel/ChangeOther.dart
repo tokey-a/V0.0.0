@@ -95,9 +95,31 @@ class _ChangeOtherState extends State<ChangeOther> {
                   
                   style: TextStyle(fontSize: ScreenUtil().setSp(26)),
                   decoration: InputDecoration(
-                    suffixIcon: Container(
-                      child: Text("data"),
-                    ),
+                    suffixIcon: GestureDetector(
+                onTap: (){
+                  print("object");
+                   FocusScope.of(context).requestFocus(FocusNode());
+                },
+
+                child:
+              Container(
+                margin: EdgeInsets.only(top: ScreenUtil().setHeight(25),bottom: ScreenUtil().setHeight(15)),
+                padding: EdgeInsets.only(left: ScreenUtil().setWidth(23)),
+                decoration: BoxDecoration(
+                  border: Border(left: BorderSide(width: 1,color: Color.fromRGBO(196, 205, 218, 1)))
+                ),
+                child:
+                GestureDetector(
+                  onTap: (){
+                    print("发送验证码");
+                  },
+                  child:
+                Text("发送验证码",style: TextStyle(
+                  color: Color.fromRGBO(31, 120, 228, 1),
+                  fontSize: ScreenUtil().setSp(26)
+                ),),)
+              ),
+               ),
                     hintText: '${widget.verificationHintText}',
                     isDense: true,
                     focusedBorder: UnderlineInputBorder(

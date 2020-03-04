@@ -19,7 +19,15 @@ class _ForgetPassWordState extends State<ForgetPassWord> {
         elevation: 1,
         title: Text("找回密码"),
       ),
-      body: ListView(
+      resizeToAvoidBottomPadding: false,
+      body:
+      GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child:
+      
+       ListView(
         children: <Widget>[
           Container(
             padding: EdgeInsets.fromLTRB(
@@ -31,6 +39,7 @@ class _ForgetPassWordState extends State<ForgetPassWord> {
           )
         ],
       ),
+      )
     );
   }
 }
@@ -51,6 +60,10 @@ class _FpViewState extends State<FpView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入账号',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -59,7 +72,7 @@ class _FpViewState extends State<FpView> {
                   color: Color.fromRGBO(31, 120, 228, 1), 
                    width: 2,
         )),
-                  suffix: Icon(Icons.highlight_off,color: Color.fromRGBO(168, 168, 168, 1),size: ScreenUtil().setHeight(48),),
+                  suffix: Icon(Icons.clear,color: Color.fromRGBO(168, 168, 168, 1),size: ScreenUtil().setHeight(48),),
                   // contentPadding:EdgeInsets.all(10.0),
                 ),
           ),
@@ -70,9 +83,38 @@ class _FpViewState extends State<FpView> {
             cursorColor:Color.fromRGBO(31, 120, 228, 1),
              keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-              fillColor: Colors.red,
-                  isDense: true,
+              
+              suffixIcon:
+              GestureDetector(
+                onTap: (){
+                  print("object");
+                   FocusScope.of(context).requestFocus(FocusNode());
+                },
+
+                child:
+              Container(
+                margin: EdgeInsets.only(top: ScreenUtil().setHeight(25),bottom: ScreenUtil().setHeight(15)),
+                padding: EdgeInsets.only(left: ScreenUtil().setWidth(23)),
+                decoration: BoxDecoration(
+                  border: Border(left: BorderSide(width: 1,color: Color.fromRGBO(196, 205, 218, 1)))
+                ),
+                child:
+                GestureDetector(
+                  onTap: (){
+                    print("发送验证码");
+                  },
+                  child:
+                Text("发送验证码",style: TextStyle(
+                  color: Color.fromRGBO(31, 120, 228, 1),
+                  fontSize: ScreenUtil().setSp(26)
+                ),),)
+              ),
+               ), fillColor: Colors.red,
                   hintText: '请输入手机或邮箱验证码',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -87,34 +129,6 @@ class _FpViewState extends State<FpView> {
           ),
         ),
         Container(
-          child:Column(children: <Widget>[Container(
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 200,
-                child: TextField(),
-              ),
-              Container(
-                child: Text("|",style: TextStyle(fontSize: ScreenUtil().setSp(50)),),
-              ),
-              Container(
-                child: Text("发送验证码",style: TextStyle(
-                  color: Color.fromRGBO(31, 120, 228, 1),
-                  fontSize: ScreenUtil().setSp(26)
-                ),),
-              )
-             
-            ],
-          ),
-           ),
-           Container(
-            //  color: Colors.red,
-             width: double.infinity,
-             height: 2,
-           )
-           ],)
-        ),
-        Container(
           padding: EdgeInsets.only(top:ScreenUtil().setHeight(60)),
            child: TextField(
             cursorColor:Color.fromRGBO(31, 120, 228, 1),
@@ -123,6 +137,10 @@ class _FpViewState extends State<FpView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '请输入新密码（至少8位英文数字组合）',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -145,6 +163,10 @@ class _FpViewState extends State<FpView> {
               fillColor: Colors.red,
                   isDense: true,
                   hintText: '确认新密码',
+                  hintStyle: TextStyle(
+                    color: Color.fromRGBO(166, 177, 193, 1),
+                    fontSize: ScreenUtil().setSp(26),
+                  ),
                 enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color.fromRGBO(229, 229, 229, 1),width: 2),
         ),
@@ -153,8 +175,14 @@ class _FpViewState extends State<FpView> {
                   color: Color.fromRGBO(31, 120, 228, 1), 
                    width: 2,
         )),
-                  suffix: Icon(Icons.clear,color: Color.fromRGBO(168, 168, 168, 1),size: ScreenUtil().setHeight(48),),
+                  // suffix: Icon(Icons.clear,color: Color.fromRGBO(168, 168, 168, 1),size: ScreenUtil().setHeight(48),),
                   // contentPadding:EdgeInsets.all(10.0),
+                  suffix: GestureDetector(
+                    onTap: (){
+                      print("object");
+                    },
+                    child: Text("data"),
+                  )
                 ),
           ),
         ),
@@ -169,7 +197,7 @@ class _FpViewState extends State<FpView> {
               fontSize: ScreenUtil().setSp(28),
             ),),
             onPressed: (){
-              print("完成");
+              Navigator.of(context).pop();
             }),
         )
       ],
