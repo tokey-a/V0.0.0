@@ -45,23 +45,39 @@ class _GetMoneyState extends State<GetMoney> {
                         fontSize: ScreenUtil().setSp(28),
                         fontWeight: FontWeight.w600),
                   ),
-                ),TextField(
+                ),
+                
+                TextField(
                   cursorColor: Colors.black,
                   style: TextStyle(fontSize: ScreenUtil().setSp(26)),
                   decoration: InputDecoration(
-                    suffixIcon: Container(
-                      padding: EdgeInsets.only(left: ScreenUtil().setWidth(33)),
-                      decoration: BoxDecoration(
-                        border: Border(left: BorderSide(width: ScreenUtil().setWidth(2),color: Colors.red),)
-                      ),
-                      child: Text("全部",style: TextStyle(
-                        color: Color.fromRGBO(31, 120, 228, 1),
-                        fontSize: ScreenUtil().setSp(26),
-                        fontWeight: FontWeight.bold
-                      ),),
-                    ),
+                    suffixIcon: GestureDetector(
+                onTap: (){
+                  print("object");
+                   FocusScope.of(context).requestFocus(FocusNode());
+                },
+
+                child:
+              Container(
+                margin: EdgeInsets.only(top: ScreenUtil().setHeight(25),bottom: ScreenUtil().setHeight(15)),
+                padding: EdgeInsets.only(left: ScreenUtil().setWidth(33)),
+                decoration: BoxDecoration(
+                  border: Border(left: BorderSide(width: 1,color: Color.fromRGBO(196, 205, 218, 1)))
+                ),
+                child:
+                GestureDetector(
+                  onTap: (){
+                    print("发送验证码");
+                  },
+                  child:
+                Text("全部",style: TextStyle(
+                  color: Color.fromRGBO(31, 120, 228, 1),
+                  fontSize: ScreenUtil().setSp(26)
+                ),),)
+              ),
+               ),
                     hintText: "请输入提现数量",
-                    isDense: true,
+                    isDense: false,
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                       color: Color.fromRGBO(31, 120, 228, 1),
@@ -71,8 +87,7 @@ class _GetMoneyState extends State<GetMoney> {
                   onSubmitted: (text) {
                     print(text);
                   },
-                ),
-                Row(children: <Widget>[
+                ),Row(children: <Widget>[
                   Expanded(child: Container(
                     margin: EdgeInsets.only(top: ScreenUtil().setHeight(18)),
                     alignment: Alignment.centerRight,

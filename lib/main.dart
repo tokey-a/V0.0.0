@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage>  {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(statusBarBrightness: Brightness.dark));
     return Scaffold(
       body:  _Home(),
     

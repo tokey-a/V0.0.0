@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tokpay/page/Assets/GetMoney.dart';
+import 'package:tokpay/page/Assets/Recharge.dart';
+import 'package:tokpay/page/Assets/TransferMoney.dart';
 import 'package:tokpay/page/Order/tabbars/lib/extends.dart';
 
 class Assets extends StatefulWidget {
@@ -150,6 +153,9 @@ class _AssetsState extends State<Assets> with TickerProviderStateMixin{
             Expanded(
               flex: 1,
               child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Recharge()));
+                },
                 child: Container(
                   padding: EdgeInsets.only(top: ScreenUtil().setHeight(21),bottom: ScreenUtil().setHeight(21)),
                   margin: EdgeInsets.only(right: ScreenUtil().setWidth(27)),
@@ -173,6 +179,9 @@ class _AssetsState extends State<Assets> with TickerProviderStateMixin{
             ),
               Expanded(
               child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TransferMoney()));
+                },
                 child: Container(
                   padding: EdgeInsets.only(top: ScreenUtil().setHeight(21),bottom: ScreenUtil().setHeight(21)),
                   margin: EdgeInsets.only(left: ScreenUtil().setWidth(13),right: ScreenUtil().setWidth(13)),
@@ -196,6 +205,9 @@ class _AssetsState extends State<Assets> with TickerProviderStateMixin{
             ),
               Expanded(
               child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>GetMoney()));
+                },
                 child: Container(
                   padding: EdgeInsets.only(top: ScreenUtil().setHeight(21),bottom: ScreenUtil().setHeight(21)),
                   margin: EdgeInsets.only(left: ScreenUtil().setWidth(27),),

@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tokpay/page/HomePage.dart';
 import 'package:tokpay/page/LoginPage/ForgetPassWord.dart';
 import 'package:tokpay/page/LoginPage/Register.dart';
-import 'package:tokpay/page/LoginPage/RegisterSuccess.dart';
-import 'package:tokpay/page/Transaction/Transaction.dart';
 
 
 class SignIn extends StatefulWidget {

@@ -125,6 +125,7 @@ class _TransferMoneyState extends State<TransferMoney> {
                           style: TextStyle(fontSize: ScreenUtil().setSp(26)),
                           decoration: InputDecoration(
                             suffixIcon: Container(
+                              margin: EdgeInsets.only(top: ScreenUtil().setHeight(25),bottom: ScreenUtil().setHeight(15)),
                               padding: EdgeInsets.only(
                                   left: ScreenUtil().setWidth(33)),
                               decoration: BoxDecoration(
