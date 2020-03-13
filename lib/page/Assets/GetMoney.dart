@@ -18,7 +18,7 @@ class _GetMoneyState extends State<GetMoney> {
           icon: Image.asset("Images/Currency/ZuoJianTou/Rectangle.png",width: ScreenUtil().setWidth(38),height: ScreenUtil().setHeight(38),),
           onPressed: ()=>Navigator.of(context).pop(),
         ),
-        elevation: 0,
+        elevation: 2,
           title: Text(
             "提现",
             style: TextStyle(

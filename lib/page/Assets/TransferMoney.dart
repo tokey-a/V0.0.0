@@ -22,7 +22,7 @@ class _TransferMoneyState extends State<TransferMoney> {
             ),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          // elevation: 0,
+          elevation: 2,
           title: Text(
             "转账",
             style: TextStyle(
@@ -87,7 +87,7 @@ class _TransferMoneyState extends State<TransferMoney> {
                                FocusScope.of(context).requestFocus(FocusNode());
                             },
                             ),
-                            hintText: '请输入提现金额',
+                            hintText: '请输入收款地址',
                             isDense: true,
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
@@ -132,7 +132,7 @@ class _TransferMoneyState extends State<TransferMoney> {
                                   border: Border(
                                 left: BorderSide(
                                     width: ScreenUtil().setWidth(2),
-                                    color: Colors.red),
+                                    color: Color.fromRGBO(196, 205, 218, 1)),
                               )),
                               child: Text(
                                 "全部",

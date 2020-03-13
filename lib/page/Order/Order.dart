@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tokpay/page/Order/OrderCard.dart';
 
 import 'package:tokpay/page/Order/tabbars/lib/extends.dart';
 
@@ -27,12 +28,21 @@ class _OrderState extends State<Order> with TickerProviderStateMixin {
           child: 
       Column(
         children: <Widget>[
-          
           TabBar(
+            indicatorColor: Colors.purple,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorPadding: EdgeInsets.all(0),
             indicator: ColorTabIndicator(Colors.blue),
             labelColor: Colors.black,
             tabs: [
-              Tab(text: "全部"),
+              Tab(
+                child: Container(
+                  child: Text("data"),
+                  padding: EdgeInsets.only(left: ScreenUtil().setWidth(30)),
+                  decoration: BoxDecoration(
+                  ),
+                ),
+              ),
               Tab(text: "出售"),
               Tab(text: "购买"),
             ],
@@ -43,11 +53,13 @@ class _OrderState extends State<Order> with TickerProviderStateMixin {
               children: <Widget>[
                 Column(
                   children: <Widget>[
+                    
                     TabBar(
-                      indicator: ColorTabIndicator(Colors.red),
+                      indicatorSize: TabBarIndicatorSize.label,
                       labelColor: Colors.black,
                       tabs: [
-                        Tab(text: "进行中"),
+                        Tab(
+                          text: "进行中"),
                         Tab(text: "申诉中"),
                         Tab(text: "已完成"),
                         Tab(text: "已取消"),
@@ -57,10 +69,12 @@ class _OrderState extends State<Order> with TickerProviderStateMixin {
                     Expanded(
                       child: ExtendedTabBarView(
                         children: <Widget>[
-                          Linding(),
-                          Text("Tab01"),
-                          Text("Tab02"),
-                          Text("Tab03"),
+                          Container(
+                            color: Colors.grey[200],
+                            child: OnGoing(),),
+                           Complaint(),
+                            OrderOver(),
+                            Cencel(),
                         ],
                         controller: tabController1,
                       ),
@@ -88,206 +102,69 @@ class _OrderState extends State<Order> with TickerProviderStateMixin {
   }
 }
 
-class Linding extends StatefulWidget {
+//进行中
+class OnGoing extends StatefulWidget {
   @override
-  _LindingState createState() => _LindingState();
+  _OnGoingState createState() => _OnGoingState();
 }
 
-class _LindingState extends State<Linding> {
-  bool aa=true;
+class _OnGoingState extends State<OnGoing> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-    margin: EdgeInsets.only(top: ScreenUtil().setHeight(24),left: ScreenUtil().setWidth(32),right: ScreenUtil().setWidth(32)),
-    
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.fromLTRB(
-                              ScreenUtil().setWidth(36),
-                              ScreenUtil().setHeight(24),
-                              ScreenUtil().setWidth(36),
-                              ScreenUtil().setHeight(29),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(5),
-                                    topRight: Radius.circular(5))),
-                            child: Row(
-                              children: <Widget>[
-                                aa
-                                    ? Text(
-                                        "买入单",
-                                        style: TextStyle(
-                                            color:
-                                                Color.fromRGBO(0, 100, 255, 1),
-                                            fontSize: ScreenUtil().setSp(32),
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    : Text(
-                                        "卖出单",
-                                        style: TextStyle(
-                                            color:
-                                                Color.fromRGBO(248, 86, 74, 1),
-                                            fontSize: ScreenUtil().setSp(32),
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      left: ScreenUtil().setWidth(10)),
-                                  child: Text(
-                                    "500USDT",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(72, 87, 110, 1),
-                                      fontSize: ScreenUtil().setSp(32),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Container(
-                                  alignment: Alignment.centerRight,
-                                  child: aa
-                                      ? Text(
-                                          "待付款",
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  4, 102, 255, 1),
-                                              fontSize: ScreenUtil().setSp(32)),
-                                        )
-                                      : Text(
-                                          "已取消",
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  141, 150, 160, 1),
-                                              fontSize: ScreenUtil().setSp(32)),
-                                        ),
-                                ))
-                              ],
-                            ),
-                          ),
-                          Container(
-                              color: Color.fromRGBO(243, 246, 255, 1),
-                              padding: EdgeInsets.only(
-                                  left: ScreenUtil().setWidth(36),
-                                  top: ScreenUtil().setHeight(25),
-                                  right: ScreenUtil().setWidth(36),
-                                  bottom: ScreenUtil().setHeight(29)),
-                              child: Column(children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Container(
-                                      child: Text(
-                                        "单价",
-                                        style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(141, 150, 160, 1),
-                                          fontSize: ScreenUtil().setSp(28),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        child: Container(
-                                      alignment: Alignment.centerRight,
-                                      child: Text(
-                                        "priceOnly[index]",
-                                        style: TextStyle(
-                                          color: Color.fromRGBO(72, 87, 110, 1),
-                                          fontSize: ScreenUtil().setSp(28),
-                                        ),
-                                      ),
-                                    ))
-                                  ],
-                                ),
-                                Container(
-                                  color: Color.fromRGBO(0, 0, 0, 0.3),
-                                  margin: EdgeInsets.only(
-                                      top: ScreenUtil().setHeight(13),
-                                      bottom: ScreenUtil().setHeight(24)),
-                                  height: ScreenUtil().setHeight(1),
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    Container(
-                                      child: Text(
-                                        "price[index]",
-                                        style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(141, 150, 160, 1),
-                                          fontSize: ScreenUtil().setSp(28),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        child: Container(
-                                      alignment: Alignment.centerRight,
-                                      child: Text(
-                                        "1231",
-                                        style: TextStyle(
-                                          color: Color.fromRGBO(72, 87, 110, 1),
-                                          fontSize: ScreenUtil().setSp(28),
-                                        ),
-                                      ),
-                                    ))
-                                  ],
-                                ),
-                                Container(
-                                  color: Color.fromRGBO(0, 0, 0, 0.3),
-                                  margin: EdgeInsets.only(
-                                      top: ScreenUtil().setHeight(13),
-                                      bottom: ScreenUtil().setHeight(24)),
-                                  height: ScreenUtil().setHeight(1),
-                                ),
-                                Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(5),
-                                            bottomRight: Radius.circular(5))),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Container(
-                                          child: Text(
-                                            "时间",
-                                            style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  141, 150, 160, 1),
-                                              fontSize: ScreenUtil().setSp(28),
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                            child: Container(
-                                          margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(10)),
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            "time[index]",
-                                            style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  72, 87, 110, 1),
-                                              fontSize: ScreenUtil().setSp(28),
-                                            ),
-                                          ),
-                                        )),
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              left: ScreenUtil().setWidth(10)),
-                                          child: Text(
-                                            "11：08：13",
-                                            style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  72, 87, 110, 1),
-                                              fontSize: ScreenUtil().setSp(28),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ))
-                              ]))
-                        
-                        ],
-                      ),
-                   
+    return OrderCard(
+      pages: 1,//页面编号 第一个tabs
+      type: ["1","1","2"],//页面类型1 购买 2 出售 订单数量长度
+      orderState: ["1","1","2"],//订单状态 1：请付款 2：请放行 3：已完成 4:已取消
+      
+    );
+  }
+}
+
+//申诉中
+class Complaint extends StatefulWidget {
+  @override
+  _ComplaintState createState() => _ComplaintState();
+}
+
+class _ComplaintState extends State<Complaint> {
+  @override
+  Widget build(BuildContext context) {
+    return OrderCard(
+      pages: 2,//页面编号 第二个tabs
+      type: ["1"],//页面类型1 购买 2 出售 订单数量长度
+     orderState: ["1",],//订单状态 1：请付款 2：请放行 3：已完成 4:已取消
+    );
+  }
+}
+
+//已完成
+class OrderOver extends StatefulWidget {
+  @override
+  _OrderOverState createState() => _OrderOverState();
+}
+class _OrderOverState extends State<OrderOver> {
+  @override
+  Widget build(BuildContext context) {
+    return OrderCard(
+      pages: 3,//页面编号 第三个tabs
+      type: ["1","2"],//页面类型1 购买 2 出售 订单数量长度
+      orderState: ["3",'4'],//订单状态 1：请付款 2：请放行 3：已完成 4:已取消
+    );
+  }
+}
+//已取消
+class Cencel extends StatefulWidget {
+  @override
+  _CencelState createState() => _CencelState();
+}
+
+class _CencelState extends State<Cencel> {
+  @override
+  Widget build(BuildContext context) {
+    return OrderCard(
+      pages: 4,//页面编号 第四个tabs
+      type: ['1','2',],//页面类型1 购买 2 出售 订单数量长度 
+      orderState: ["4",'4',],//订单状态 1：请付款 2：请放行 3：已完成 4:已取消
     );
   }
 }
